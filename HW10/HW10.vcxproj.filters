@@ -24,9 +24,6 @@
     <ClInclude Include="bintreenode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="driver1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="driver2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
