@@ -1,4 +1,4 @@
-// Participants: Christopher
+// Participants: Christopher, Long
 // Date: 5-6-21
 // Description: BinaryTree
 #pragma once
