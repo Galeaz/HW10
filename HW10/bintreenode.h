@@ -1,6 +1,6 @@
 #pragma once
-// Name: Prof Q
-// Date: 4-26-21
+// Name: Prof Q and Duyen
+// Date: 5-6-21
 // Description: Binary tree node
 
 #include <iostream>
