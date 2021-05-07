@@ -253,5 +253,5 @@ void BinaryTree::deleteNode(node*& _node) {
     deleteNode(_node->right);
     delete _node;
     _node = nullptr;
-    count = 0;
+    count--;
 }
