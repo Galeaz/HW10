@@ -34,9 +34,7 @@ void option2()
             nod = new node;
             int input;
             input = inputInteger("Enter an integer:");
-            //cout << "Enter an integer : ";        
             nod->entry = input;
-            //cin >> nod->entry;
             twee.insert(righ, nod);
             break;
         case 2:
@@ -46,16 +44,12 @@ void option2()
             }
             int num;
             num = inputInteger("Enter an integer:");
-            /*cout << "Enter an integer : ";
-            cin >> findThis;*/
             twee.remove(num);
             break;
         case 3:
             twee.Printcount();
             break;
         case 4:
-            /*cout << "Enter an integer key to search:\n";
-            cin >> findThis;*/
             int num1;
             num1 = inputInteger("Enter an integer:");
             twee.search(righ, num1);
@@ -76,7 +70,7 @@ void option2()
             cout << "\n";
             break;
         case 8:
-            //MISSING DELETE TREE
+            cout << "Successful deletion\n";
             twee.deleteNode(righ);
             break;
         case 9:

@@ -1,4 +1,4 @@
-// Participants: Christopher, Minh
+// Participants: Christopher
 // Date: 5-6-21
 // Description: BinaryTree
 #pragma once
@@ -296,5 +296,5 @@ void BinaryTree::deleteNode(node*& _node) {
     deleteNode(_node->righ);
     delete _node;
     _node = nullptr;
-    count--;
+    count = 0;
 }
