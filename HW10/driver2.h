@@ -1,4 +1,4 @@
-// Participants: Christopher
+// Participants: Christopher, Minh
 // Date: 5-6-21
 // Description: file containing Drivers for option2
 #pragma once
@@ -33,8 +33,10 @@ void option2()
         case 1:
             nod = new node;
             int input;
-            input = inputInteger("Enter an integer:");   
+            input = inputInteger("Enter an integer:");
+            //cout << "Enter an integer : ";        
             nod->entry = input;
+            //cin >> nod->entry;
             twee.insert(righ, nod);
             break;
         case 2:
@@ -44,12 +46,16 @@ void option2()
             }
             int num;
             num = inputInteger("Enter an integer:");
+            /*cout << "Enter an integer : ";
+            cin >> findThis;*/
             twee.remove(num);
             break;
         case 3:
             twee.Printcount();
             break;
         case 4:
+            /*cout << "Enter an integer key to search:\n";
+            cin >> findThis;*/
             int num1;
             num1 = inputInteger("Enter an integer:");
             twee.search(righ, num1);
@@ -70,8 +76,8 @@ void option2()
             cout << "\n";
             break;
         case 8:
-            cout << "Delete successful\n";
-            twee.deleteNode(nod);
+            //MISSING DELETE TREE
+            twee.deleteNode(righ);
             break;
         case 9:
             cout << "Display BinaryTree:\n";
