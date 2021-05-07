@@ -24,7 +24,7 @@ void option2()
         cout << "5. Pre-order traversal\n";
         cout << "6. In-order traversa\n";
         cout << "7. Post-order Traversal\n";
-        //cout << "8. Delete the entire tree\n";
+        cout << "8. Delete the entire tree\n";
         cout << "9. Display the entire tree\n";
         cout << "0. Quit\n";
         choice = inputInteger("Option : ", 0, 9);
@@ -77,7 +77,7 @@ void option2()
             break;
         case 8:
             //MISSING DELETE TREE
-           // twee.Delete(twee);
+            twee.deleteNode(nod);
             break;
         case 9:
             cout << "Display BinaryTree:\n";
