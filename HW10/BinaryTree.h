@@ -27,15 +27,15 @@ class BinaryTree {
         void find(int, node**, node**);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void noNull(node*, node*);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void oneNull(node*, node*);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void bothNull(node*, node*);
 
         //Precondition: N/A
