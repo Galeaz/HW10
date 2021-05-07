@@ -1,4 +1,4 @@
-// Participants: Christopher
+// Participants: Christopher, Minh
 // Date: 5-6-21
 // Description: file containing Drivers for option2
 #pragma once
@@ -77,7 +77,7 @@ void option2()
             break;
         case 8:
             //MISSING DELETE TREE
-            twee.deleteNode(nod);
+            twee.deleteNode(righ);
             break;
         case 9:
             cout << "Display BinaryTree:\n";
