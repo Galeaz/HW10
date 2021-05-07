@@ -23,7 +23,7 @@ class BinaryTree {
         void remove(int);
 
         //Precondition: an int, a stuck node
-        //Postcondition: 
+        //Postcondition: find entry
         void find(int, node**, node**);
 
         //Precondition: N/A
