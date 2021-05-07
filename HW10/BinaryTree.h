@@ -6,14 +6,14 @@
 #include <cstdlib>
 using namespace std;
 
+struct node {
+    int entry;
+    struct node* left;
+    struct node* righ;
+}*righ;
+
 class BinaryTree {
     public:
-        struct node {
-            int entry;
-            struct node* left;
-            struct node* right;
-        }*right;
-
         void insert(node*, node*);
         void remove(int);
         void find(int, node**, node**);
@@ -29,7 +29,7 @@ class BinaryTree {
         void print(node*, int);
         int getCount();
         BinaryTree() {
-            right = NULL;
+            righ = NULL;
             count = 0;
         }
 private:
@@ -46,11 +46,11 @@ void BinaryTree::Printcount()
 }
 
 void BinaryTree::insert(node *tree, node *newnode) {
-    if (right == NULL) {
-        right = new node;
-        right->entry = newnode->entry;
-        right->left = NULL;
-        right->right = NULL;
+    if (righ == NULL) {
+        righ = new node;
+        righ->entry = newnode->entry;
+        righ->left = NULL;
+        righ->righ = NULL;
         count++;
         return;
     }
@@ -61,19 +61,19 @@ void BinaryTree::insert(node *tree, node *newnode) {
         else {
             tree->left = newnode;
             (tree->left)->left = NULL;
-            (tree->left)->right = NULL;
+            (tree->left)->righ = NULL;
             count++;
             return;
         }
     }
     else {
-        if (tree->right != NULL) {
-            insert(tree->right, newnode);
+        if (tree->righ != NULL) {
+            insert(tree->righ, newnode);
         }
         else {
-            tree->right = newnode;
-            (tree->right)->left = NULL;
-            (tree->right)->right = NULL;
+            tree->righ = newnode;
+            (tree->righ)->left = NULL;
+            (tree->righ)->righ = NULL;
             count++;
             return;
         }
@@ -81,7 +81,7 @@ void BinaryTree::insert(node *tree, node *newnode) {
 }
 void BinaryTree::remove(int i) {
     node*a, *b;
-    if (right == NULL) {
+    if (righ == NULL) {
         cout << "ERROR: BinaryTree is empty.\n";
         return;
     }
@@ -90,29 +90,29 @@ void BinaryTree::remove(int i) {
         cout << "ERROR: Not in BinaryTree.\n";
         return;
     }
-    if (b->left != NULL && b->right != NULL) noNull(a, b);
-    if ((b->left != NULL && b->right == NULL) || (b->left == NULL && b->right != NULL)) oneNull(a, b);
-    if (b->left == NULL && b->right == NULL) bothNull(a, b);
+    if (b->left != NULL && b->righ != NULL) noNull(a, b);
+    if ((b->left != NULL && b->righ == NULL) || (b->left == NULL && b->righ != NULL)) oneNull(a, b);
+    if (b->left == NULL && b->righ == NULL) bothNull(a, b);
     free(b);
     count--;
 }
 void BinaryTree::find(int i, node **a, node **b) {
     node *ptr, *ptrTemp;
-    if (right == NULL) {
+    if (righ == NULL) {
         *b = NULL;
         *a = NULL;
         return;
     }
-    if (i == right->entry) {
-        *b = right;
+    if (i == righ->entry) {
+        *b = righ;
         *a = NULL;
         return;
     }
-    if (i < right->entry)
-        ptr = right->left;
+    if (i < righ->entry)
+        ptr = righ->left;
     else
-        ptr = right->right;
-    ptrTemp = right;
+        ptr = righ->righ;
+    ptrTemp = righ;
     while (ptr != NULL) {
         if (i == ptr->entry) {
             *b = ptr;
@@ -123,7 +123,7 @@ void BinaryTree::find(int i, node **a, node **b) {
         if (i < ptr->entry)
             ptr = ptr->left;
         else
-            ptr = ptr->right;
+            ptr = ptr->righ;
     }
     *b = NULL;
     *a = ptrTemp;
@@ -131,28 +131,28 @@ void BinaryTree::find(int i, node **a, node **b) {
 void BinaryTree::noNull(node *a, node *b) {
     node *ptr, *ptrTemp, *suc, *parsuc;
     ptrTemp = b;
-    ptr = b->right;
+    ptr = b->righ;
     while (ptr->left != NULL) {
         ptrTemp = ptr;
         ptr = ptr->left;
     }
     suc = ptr;
     parsuc = ptrTemp;
-    if (suc->left == NULL && suc->right == NULL)
+    if (suc->left == NULL && suc->righ == NULL)
         bothNull(parsuc, suc);
     else
         oneNull(parsuc, suc);
     if (a == NULL) {
-        right = suc;
+        righ = suc;
     }
     else {
         if (b == a->left)
             a->left = suc;
         else
-            a->right = suc;
+            a->righ = suc;
     }
     suc->left = b->left;
-    suc->right = b->right;
+    suc->righ = b->righ;
     cout << "Removal successful\n";
 }
 void BinaryTree::oneNull(node *a, node *b) {
@@ -160,27 +160,27 @@ void BinaryTree::oneNull(node *a, node *b) {
     if (b->left != NULL)
         child = b->left;
     else
-        child = b->right;
+        child = b->righ;
     if (a == NULL) {
-        right = child;
+        righ = child;
     }
     else {
         if (b == a->left)
             a->left = child;
         else
-            a->right = child;
+            a->righ = child;
     }
     cout << "Removal successful\n";
 }
 void BinaryTree::bothNull(node *a, node *b) {
     if (a == NULL) {
-        right = NULL;
+        righ = NULL;
     }
     else {
         if (b == a->left)
             a->left = NULL;
         else
-            a->right = NULL;
+            a->righ = NULL;
     }
     cout << "Removal successful\n";
 }
@@ -197,41 +197,41 @@ void BinaryTree::search(node *root, int getThis) {
         else if (temp->entry > getThis)
             temp = temp->left;
         else
-            temp = temp->right;
+            temp = temp->righ;
     }
     cout << "Not found\n";
     return;
 }
 void BinaryTree::preorder(node *ptr) {
-    if (right == NULL) {
+    if (righ == NULL) {
         cout << "Tree is empty\n";
         return;
     }
     if (ptr != NULL) {
         cout << ptr->entry << " ";
         preorder(ptr->left);
-        preorder(ptr->right);
+        preorder(ptr->righ);
     }
 }
 void BinaryTree::inorder(node *ptr) {
-    if (right == NULL) {
+    if (righ == NULL) {
         cout << "Tree is empty\n";
         return;
     }
     if (ptr != NULL) {
         inorder(ptr->left);
         cout << ptr->entry << " ";
-        inorder(ptr->right);
+        inorder(ptr->righ);
     }
 }
 void BinaryTree::postorder(node *ptr) {
-    if (right == NULL) {
+    if (righ == NULL) {
         cout << "Tree is empty\n";
         return;
     }
     if (ptr != NULL) {
         postorder(ptr->left);
-        postorder(ptr->right);
+        postorder(ptr->righ);
         cout << ptr->entry << " ";
     }
 }
@@ -243,14 +243,14 @@ void BinaryTree::print(node *ptr, int level) {
             cout << " ";
         cout << ptr->entry;
         print(ptr->left, level);
-        print(ptr->right, level);
+        print(ptr->righ, level);
     }
 }
 
 void BinaryTree::deleteNode(node*& _node) {
     if (_node == nullptr) return;
     deleteNode(_node->left);
-    deleteNode(_node->right);
+    deleteNode(_node->righ);
     delete _node;
     _node = nullptr;
     count = 0;
