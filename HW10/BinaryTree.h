@@ -25,7 +25,7 @@ class BinaryTree {
         void preorder(node*);
         void inorder(node*);
         void postorder(node*);
-        //void delete();
+        void deleteNode(node*& _node);
         void print(node*, int);
         int getCount();
         BinaryTree() {
@@ -245,4 +245,13 @@ void BinaryTree::print(node *ptr, int level) {
         print(ptr->left, level);
         print(ptr->right, level);
     }
+}
+
+void BinaryTree::deleteNode(node*& _node) {
+    if (_node == nullptr) return;
+    deleteNode(_node->left);
+    deleteNode(_node->righ);
+    delete _node;
+    _node = nullptr;
+    count--;
 }
