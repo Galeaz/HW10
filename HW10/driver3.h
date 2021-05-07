@@ -1,4 +1,4 @@
-// Participants: 
+// Participants: Andrew Thompson and Gabriela Lopez
 // Date: 
 // Description: file containing Drivers for option3
 #pragma once
@@ -20,7 +20,8 @@ void option3()
 	//	cout << "\nError! animal.txt not found!\n";
 	//}
 	Binary_Tree_Node<string>* rootPtr = new Binary_Tree_Node<string>();
-	do {
+	do 
+	{
 		ifstream file("animal.txt");
 		if (!file.is_open())
 		{
@@ -51,14 +52,8 @@ void option3()
 			playGame(rootPtr, infile);
 			infile.close();
 			break;
-
 		}
-
-
 		case(2):ofstream outfile("animal.txt"); save(rootPtr, outfile); outfile.close(); break;
 		}
-
-
-
 	} while (true);
 }
