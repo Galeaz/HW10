@@ -1,3 +1,7 @@
+// Participants: Christopher
+// Date: 5-6-21
+// Description: animal guessing game implementation
+
 #pragma once
 #include <cstdlib>
 #include <iostream>
@@ -6,16 +10,41 @@
 #include "bintreenode.h"
 #include "input.h"
 
+// Function Declaration
 
-
+//Precondition: being called
+//Postcondition: explains and gives instructions to user
 void instructions();
+
+//Precondition: current node pointer
+//Postcondition: gets the info from node and asks user for an answer
 void askAndMove(Binary_Tree_Node<string>*& currPtr);
+
+//Precondition: current node pointer and the file to read
+//Postcondition: creates a new string binary tree full of the data from file
 Binary_Tree_Node<string>* beginTree(Binary_Tree_Node<string>*& currPtr, ifstream& file);
+
+//Precondition: 
+//Postcondition: 
 void learnNewAnimal(Binary_Tree_Node<string>*& currPtr);
+
+//Precondition: current note pointer
+//Postcondition: moves through binary tree guessing the animal
 void runGame(Binary_Tree_Node<string>* currPtr);
+
+//Precondition: a binary tree root pointer and the file to read
+//Postcondition: starts a new binary tree and runs the game
 void playGame(Binary_Tree_Node<string>*& rootPtr, ifstream& file);
+
+//Precondition: N/A
+//Postcondition: contains driver for Animal Guessing Game
 void option3();
+
+//Precondition: binary tree root pointer and file to save
+//Postcondition: 
 void save(Binary_Tree_Node<string>*& rootPtr, ofstream& outfile);
+
+// Function Implementation
 
 Binary_Tree_Node<string>* beginTree(Binary_Tree_Node<string>*& currPtr, ifstream& file)
 {
@@ -43,15 +72,17 @@ Binary_Tree_Node<string>* beginTree(Binary_Tree_Node<string>*& currPtr, ifstream
 	return currPtr;
 
 }
+
 void askAndMove(Binary_Tree_Node<string>*& currPtr)
 {
 	cout << currPtr->data();
-	if (inquire("Answer "))
+	if (inquire(" Answer "))
 		currPtr = currPtr->left();
 	else
 		currPtr = currPtr->right();
 
 }
+
 void learnNewAnimal(Binary_Tree_Node<string>*& leafPtr)
 {
 	string guess;
@@ -81,7 +112,7 @@ void learnNewAnimal(Binary_Tree_Node<string>*& leafPtr)
 
 void runGame(Binary_Tree_Node<string>* currPtr)
 {
-	cout << "Think of an animal, then press the return key";
+	cout << "Think of an animal, then press the return key ";
 	eatLine();
 	while (!currPtr->isLeaf())
 		askAndMove(currPtr);
@@ -91,18 +122,14 @@ void runGame(Binary_Tree_Node<string>* currPtr)
 		learnNewAnimal(currPtr);
 	else
 		cout << "\nAh, I knew it was that from the start!\n";
-
-
-
-
 }
+
 void instructions()
 {
-
-	cout << "\tThis is a learning version of twenty questions : one that not only plays the game, but learns new\n";
-	cout << "\tobjects when it loses.\n";
-
+	cout << "\tThis is a learning version of twenty questions: one that not only plays the game, but learns new\n";
+	cout << "\tobjects when it loses.\n\n";
 }
+
 void playGame(Binary_Tree_Node<string>*& rootPtr, ifstream& file)
 {
 	if (rootPtr->left() != nullptr)
@@ -115,6 +142,7 @@ void playGame(Binary_Tree_Node<string>*& rootPtr, ifstream& file)
 	//cout << "Thanks for teaching me more about animals!\n";
 	return;
 }
+
 void save(Binary_Tree_Node<string>*& rootPtr, ofstream& outfile)
 {
 	if (rootPtr != nullptr)
