@@ -250,7 +250,7 @@ void BinaryTree::print(node *ptr, int level) {
 void BinaryTree::deleteNode(node*& _node) {
     if (_node == nullptr) return;
     deleteNode(_node->left);
-    deleteNode(_node->righ);
+    deleteNode(_node->right);
     delete _node;
     _node = nullptr;
     count = 0;
