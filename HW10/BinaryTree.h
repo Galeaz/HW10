@@ -1,4 +1,4 @@
-// Participants: Christopher, Minh
+// Participants: Christopher, Long
 // Date: 5-6-21
 // Description: BinaryTree
 #pragma once
@@ -27,15 +27,15 @@ class BinaryTree {
         void find(int, node**, node**);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void noNull(node*, node*);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void oneNull(node*, node*);
 
         //Precondition: N/A
-        //Postcondition: 
+        //Postcondition: removed integer
         void bothNull(node*, node*);
 
         //Precondition: N/A
@@ -296,5 +296,5 @@ void BinaryTree::deleteNode(node*& _node) {
     deleteNode(_node->righ);
     delete _node;
     _node = nullptr;
-    count--;
+    count = 0;
 }

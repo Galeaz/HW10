@@ -1,4 +1,4 @@
-// Participants: 
+// Participants: Andrew Thompson and Gabriela Lopez
 // Date: 
 // Description: file containing Drivers for option3
 #pragma once
@@ -20,7 +20,8 @@ void option3()
 	//	cout << "\nError! animal.txt not found!\n";
 	//}
 	Binary_Tree_Node<string>* rootPtr = new Binary_Tree_Node<string>();
-	do {
+	do 
+	{
 		ifstream file("animal.txt");
 		if (!file.is_open())
 		{
@@ -33,11 +34,11 @@ void option3()
 		instructions();
 		cout << "\t Animal Guessing Game Menu:\n";
 		cout << '\t' << string(40, char(205)) << '\n';
-		cout << "\t\t 1: play\n";
+		cout << "\t\t 1: Play\n";
 		cout << "\t\t 2: Save to the game file\n";
-		cout << "\t\t 0: return\n";
+		cout << "\t\t 0: Return\n";
 		cout << '\t' << string(40, char(205)) << '\n';
-		char choice = inputInteger("\n\t\tOption:", 0, 2);
+		char choice = inputInteger("\n\t\tOption: ", 0, 2);
 
 		switch (choice)
 		{
@@ -51,14 +52,8 @@ void option3()
 			playGame(rootPtr, infile);
 			infile.close();
 			break;
-
 		}
-
-
 		case(2):ofstream outfile("animal.txt"); save(rootPtr, outfile); outfile.close(); break;
 		}
-
-
-
 	} while (true);
 }

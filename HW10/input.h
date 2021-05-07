@@ -24,7 +24,6 @@ inline bool inquire(const char query[])
 		eatLine();
 	} while ((answer != 'Y') && (answer != 'N'));
 	return(answer == 'Y');
-
 }
 //return an input char
 inline char inputChar(string prompt, string listChars)
