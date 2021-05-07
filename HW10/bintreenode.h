@@ -29,46 +29,64 @@ public:
 		return data_field;
 	}
 
+	//precondition: binary tree
+	//postcondition: reference to pointer left leaf
 	Binary_Tree_Node*& left()
 	{
 		return left_field;
 	}
 
+	//precondition: binary tree
+	//postcondition: reference to pointer right leaf
 	Binary_Tree_Node*& right()
 	{
 		return right_field;
 	}
 
+	//precondition: binary tree
+	//postcondition: pointer point to left leaf
 	const Binary_Tree_Node* left() const
 	{
 		return left_field;
 	}
 
+	//precondition: binary tree 
+	//postcondition: pointer point to right leaf
 	const Binary_Tree_Node* right() const
 	{
 		return right_field;
 	}
 
+	//precondition: N/A
+	//postcondition: set new data
 	void setData(const T& newData)
 	{
 		data_field = newData;
 	}
 
+	//precondition: 
+	//postcondition: get new data 
 	const T& data() const
 	{
 		return data_field;
 	}
 
+	//precondition: binary tree
+	//postcondition: set pointer to the new left leaf
 	void  setLeft(Binary_Tree_Node* newLeft)
 	{
 		left_field = newLeft;
 	}
 
+	//precondition: binary tree
+	//postcondition: set pointer to the new right leaf
 	void  setRight(Binary_Tree_Node* newRight)
 	{
 		right_field = newRight;
 	}
 
+	//precondition: N/A
+	//postcondition: check if it a leaf or root
 	bool isLeaf() const
 	{
 		return (left_field == nullptr && right_field == nullptr);
@@ -76,6 +94,8 @@ public:
 
 };
 
+//precondition: N/A
+//postcondition:  print out the binary tree in order root->left->right
 template<class T>
 void print_tree(const string& prefix, const Binary_Tree_Node<T>* node, bool isLeft, bool root, bool last)
 {
@@ -112,6 +132,8 @@ void print_tree(const string& prefix, const Binary_Tree_Node<T>* node, bool isLe
 	}
 }
 
+//precondition:  is tree have any leaf?
+//postcondition: delete tree
 template<class T>
 void delete_tree(Binary_Tree_Node<T>* leaf) // Recursive
 {
@@ -127,6 +149,9 @@ void delete_tree(Binary_Tree_Node<T>* leaf) // Recursive
 	delete leaf;
 
 }
+
+//precondition:  is tree have any leaf?
+//postcondition: delete tree
 template<class T>
 void deleteTree(Binary_Tree_Node<T>* leaf) // Recursive
 {
@@ -142,6 +167,16 @@ void deleteTree(Binary_Tree_Node<T>* leaf) // Recursive
 	delete leaf;
 
 }
+
+//precondition: N/A
+//postcondition: show the bonsai tree(
+//A) Created root with no leaf. 
+//B) Root  grows two branches.
+//C) Branches grows leaves.
+//D) Left leaf sproutsand yields an "apple."
+//E) Right leaf sproutsand yields two fruits, "orange" and "coconut."
+//F) Delete the tree.)
+
 void option1()
 {
 	// Bonsai Tree of string
