@@ -14,20 +14,63 @@ struct node {
 
 class BinaryTree {
     public:
+        //Precondition: a struct node
+        //Postcondition: insert an integer to left, right leaft
         void insert(node*, node*);
+
+        //Precondition: an integer
+        //Postcondition: remove an integer from the tree
         void remove(int);
+
+        //Precondition: an int, a stuck node
+        //Postcondition: 
         void find(int, node**, node**);
+
+        //Precondition: N/A
+        //Postcondition: 
         void noNull(node*, node*);
+
+        //Precondition: N/A
+        //Postcondition: 
         void oneNull(node*, node*);
+
+        //Precondition: N/A
+        //Postcondition: 
         void bothNull(node*, node*);
+
+        //Precondition: N/A
+        //Postcondition: return count of nodes
         void Printcount();
+
+        //Precondition: an int, a stuck node
+        //Postcondition: search for a specific integer in tree 
         void search(node*, int);
+
+        //Precondition: a stuck node
+        //Postcondition: sort element inside the tree in preorder order
         void preorder(node*);
+
+        //Precondition: a stuck node
+        //Postcondition: sort element inside the tree in inorder order
         void inorder(node*);
+
+        //Precondition: a stuck node
+        //Postcondition: sort element inside the tree in postorder order
         void postorder(node*);
+
+        //Precondition: a stuck node
+        //Postcondition: delete an integer inside the tree
         void deleteNode(node*& _node);
+
+        //Precondition: a stuck node, an int
+        //Postcondition: print all elements inside the tree
         void print(node*, int);
+
+        //Precondition: N/A
+        //Postcondition: return count
         int getCount();
+
+        //constructor
         BinaryTree() {
             righ = NULL;
             count = 0;
