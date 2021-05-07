@@ -1,3 +1,7 @@
+//Name: andrew Thompson
+//date due: 5/6/2021
+//description: file containing all functuions for the animal game program
+
 #pragma once
 #include <cstdlib>
 #include <iostream>
@@ -8,15 +12,27 @@
 
 
 
+//Preconditions: Option 3 called from menu
+//Postconditions: displays info about the animal game
 void instructions();
+//Preconditions: a pointer referencing a location in a binary tree
+//Postconditions: asks a quesion in that node of the binary tree, and moves the pointer accordingly
 void askAndMove(Binary_Tree_Node<string>*& currPtr);
+//Preconditions: a pointer of type string belonging to te binarytreenode class and a file
+//Postconditions: creates the binary taxonomy tree from the contents of the file, and returns a pointer to that trees root
 Binary_Tree_Node<string>* beginTree(Binary_Tree_Node<string>*& currPtr, ifstream& file);
+//Preconditions: a pointer which points to the location in which a new question will be inserted
+//Postconditions: creates a question and adds an animal out of user input
 void learnNewAnimal(Binary_Tree_Node<string>*& currPtr);
+//Preconditions: play game was chose in the menu, a pointer pointing to nullptr or an empty node
+//Postconditions: runs the game, asking the user to find the animal the user is thinking of, until if finds the answer or learns a new animal
 void runGame(Binary_Tree_Node<string>* currPtr);
+//Preconditions: a file and a rootpnr
+//Postconditions: creates the binary taxonomy tree by calling begin tree and passes it to runGame
 void playGame(Binary_Tree_Node<string>*& rootPtr, ifstream& file);
-void option3();
+//Preconditions: a taxonmy tree root pointer and a outfile
+//Postconditions: saves the taxonomy tree to the file.
 void save(Binary_Tree_Node<string>*& rootPtr, ofstream& outfile);
-
 Binary_Tree_Node<string>* beginTree(Binary_Tree_Node<string>*& currPtr, ifstream& file)
 {
 
