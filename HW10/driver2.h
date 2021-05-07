@@ -77,7 +77,7 @@ void option2()
             break;
         case 8:
             //MISSING DELETE TREE
-            twee.deleteNode(righ);
+            twee.deleteNode(nod);
             break;
         case 9:
             cout << "Display BinaryTree:\n";
